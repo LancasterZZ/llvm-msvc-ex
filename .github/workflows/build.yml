@@ -11,7 +11,7 @@ permissions:
 jobs:
   build:
     runs-on: windows-2022
-    timeout-minutes: 180
+    timeout-minutes: 90
     env:
       BUILD_DIR: ${{ github.workspace }}\build-release-64
       INSTALL_DIR: ${{ github.workspace }}\install-release-64
@@ -42,4 +42,4 @@ jobs:
 
       - name: Build
         shell: pwsh
-        run: cmake --build $env:BUILD_DIR --config Release --target INSTALL -- /m
+        run: cmake --build $env:BUILD_DIR --config Release --target INSTALL -- /m:4
